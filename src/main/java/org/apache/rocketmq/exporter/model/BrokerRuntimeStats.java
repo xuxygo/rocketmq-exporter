@@ -127,7 +127,7 @@ public class BrokerRuntimeStats {
         this.brokerVersionDesc = kvTable.getTable().get("brokerVersionDesc");
         this.sendThreadPoolQueueSize = Long.parseLong(kvTable.getTable().get("sendThreadPoolQueueSize"));
         this.startAcceptSendRequestTimeStamp = Long.parseLong(kvTable.getTable().get("startAcceptSendRequestTimeStamp"));
-        this.putMessageEntireTimeMax = Long.parseLong(kvTable.getTable().get("putMessageEntireTimeMax"));
+        // this.putMessageEntireTimeMax = Long.parseLong(kvTable.getTable().get("putMessageEntireTimeMax"));
         this.earliestMessageTimeStamp = Long.parseLong(kvTable.getTable().get("earliestMessageTimeStamp"));
         this.remainTransientStoreBufferNumbs = Long.parseLong(kvTable.getTable().get("remainTransientStoreBufferNumbs"));
         this.queryThreadPoolQueueCapacity = Long.parseLong(kvTable.getTable().get("queryThreadPoolQueueCapacity"));
@@ -164,7 +164,7 @@ public class BrokerRuntimeStats {
     }
 
     private void loadPutMessageDistributeTime(String str) {
-        if ("null".equalsIgnoreCase(str)) {
+        if ("null".equalsIgnoreCase(str) || str == null) {
             log.warn("loadPutMessageDistributeTime WARN, value is null");
             return;
         }

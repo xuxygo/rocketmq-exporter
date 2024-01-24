@@ -42,4 +42,11 @@ public class RMQMetricsController {
         response.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
         response.getOutputStream().print(writer.toString());
     }
+
+    @RequestMapping(value = "/")
+    @ResponseBody
+    private void index(HttpServletResponse response) throws IOException {
+        response.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
+        response.getOutputStream().print("RocketMQ Exporter is running.");
+    }
 }
